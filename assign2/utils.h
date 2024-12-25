@@ -11,3 +11,5 @@ std::queue<const std::string*> find_matches(std::string name, std::set<std::stri
 std::string get_match(std::queue<const std::string*>& matches);
 
 int run_autograder();
+
+bool matchName(std::string myName,std::string hisName);

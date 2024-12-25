@@ -53,3 +53,18 @@ int run_autograder() {
 
   return run_program(python, {"autograder/autograder.py"});
 }
+
+bool matchName(std::string myName,std::string hisName){
+  size_t mypos = myName.find(' ');
+  std::string myFirstName = myName.substr(0,mypos);
+  std::string myLastName = myName.substr(mypos+1);
+
+  size_t hispos = hisName.find(' ');
+  std::string hisFirstName = hisName.substr(0,hispos);
+  std::string hisLastName = hisName.substr(hispos+1);
+
+  if(myFirstName[0] == hisFirstName[0] && myLastName[0] == hisLastName[0]){
+    return true;
+  }
+  return false;
+}

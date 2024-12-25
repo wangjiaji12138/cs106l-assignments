@@ -15,8 +15,9 @@
 #include <unordered_set>
 
 #include "utils.h"
-
-std::string kYourName = "STUDENT TODO"; // Don't forget to change this!
+using Set = std::set<std::string>;
+using String = std::string;
+std::string kYourName = "Jimmy Wang"; // Don't forget to change this!
 
 /**
  * Takes in a file name and returns a set containing all of the applicant names as a set.
@@ -31,6 +32,14 @@ std::string kYourName = "STUDENT TODO"; // Don't forget to change this!
  */
 std::set<std::string> get_applicants(std::string filename) {
   // STUDENT TODO: Implement this function.
+  std::ifstream file(filename);
+  Set applicants_set;
+  String line;
+  while(getline(file,line)){
+    applicants_set.insert(line);
+  }
+  file.close();
+  return applicants_set;
 }
 
 /**
@@ -43,6 +52,13 @@ std::set<std::string> get_applicants(std::string filename) {
  */
 std::queue<const std::string*> find_matches(std::string name, std::set<std::string>& students) {
   // STUDENT TODO: Implement this function.
+  std::queue<const std::string*> queue;
+  for(const auto& student:students){
+    if(matchName(kYourName,student)){
+      queue.push(&student);
+    }
+  }
+  return queue;
 }
 
 /**
@@ -57,6 +73,23 @@ std::queue<const std::string*> find_matches(std::string name, std::set<std::stri
  */
 std::string get_match(std::queue<const std::string*>& matches) {
   // STUDENT TODO: Implement this function.
+  std::queue<const std::string*> temp = matches; // 创建副本
+  while (!temp.empty()) {
+      std::cout << *(temp.front()) << std::endl; // 打印当前元素
+      temp.pop(); // 弹出当前元素
+  }
+  if(matches.empty()){
+    std::cout << "NO STUDENT FOUND." << "\n";
+    return "NO STUDENT FOUND.";
+  }
+  int k = 7;
+  String truelove;
+  while(!matches.empty() && k >= 0){
+    truelove = *(matches.front());
+    matches.pop();
+    k--;
+  }
+  return truelove;
 }
 
 /* #### Please don't modify this call to the autograder! #### */
