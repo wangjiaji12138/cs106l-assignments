@@ -4,9 +4,13 @@ This repository contains starter code for Stanford CS106L, a course on Standard 
 
 ## Getting Started
 **assign1**:responding to lecture 1-4
+
 **assign2**:responding to lecture 5-6
+
 **assign3**:responding to lecture 7-8
+
 **assign4**:responding to lecture 9-10
+
 Before getting started, a few prerequisites:
 
 * You will need [Python 3.8](https://www.python.org/downloads/) or higher on your computer. You can check by running `python3 --version` (`python --version` on Windows) in a terminal.
