@@ -16,7 +16,7 @@ public:
   void set_friend(size_t index, const std::string& name);
 
   /** 
-   * STUDENT TODO:
+   * STUDENT TODO: DONE
    * Your custom operators and special member functions will go here!
    */
   friend  std::string* visit_friends(const User& user);

@@ -58,6 +58,9 @@
     "vector": "cpp",
     "algorithm": "cpp",
     "__config": "cpp",
-    "charconv": "cpp"
+    "charconv": "cpp",
+    "span": "cpp",
+    "iterator": "cpp",
+    "memory_resource": "cpp"
   }
 }

@@ -60,7 +60,7 @@ void User::set_friend(size_t index, const std::string& name)
 }
 
 /** 
- * STUDENT TODO:
+ * STUDENT TODO: DONE
  * The definitions for your custom operators and special member functions will go here!
  */
 
