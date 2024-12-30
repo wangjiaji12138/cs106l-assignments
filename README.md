@@ -12,6 +12,8 @@ This repository contains starter code for Stanford CS106L, a course on Standard 
 
 **assign5**:responding to lecture 11-12
 
+**assign6**:responding to lecture 14
+
 ## Getting Started
 
 Before getting started, a few prerequisites:
