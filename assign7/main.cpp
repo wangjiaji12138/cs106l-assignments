@@ -52,7 +52,18 @@ template <typename T> struct ListNode {
  */
 template <typename T> unique_ptr<ListNode<T>> create_list(const std::vector<T>& values) {
   /* STUDENT TODO: Implement this method */
-  throw std::runtime_error("Not implemented: createList");
+  std::vector<T> reversedVec = values;
+  reverse(reversedVec.begin(), reversedVec.end());
+
+  unique_ptr<ListNode<T>> head = nullptr;
+
+  for(auto value : reversedVec){
+    auto node = std::make_unique<ListNode<T>>(value);
+    node->next = std::move(head);
+    head = std::move(node);
+  }
+  return head;
+  //throw std::runtime_error("Not implemented: createList");
 }
 
 /**
