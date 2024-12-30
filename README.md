@@ -15,6 +15,8 @@ This repository contains starter code for Stanford CS106L, a course on Standard 
 **assign6**:responding to lecture 14
 
 **assign7**:responding to lecture 13-15
+
+
 assign7 has a compile problem,but I have no time to fix it cause I get through some similar code in the git finding that nobody can fix it either.But it was a small issue.
 
 ## Getting Started
