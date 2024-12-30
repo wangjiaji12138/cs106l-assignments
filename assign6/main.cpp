@@ -3,7 +3,7 @@
  * Created by Haven Whitney with modifications by Jacob Roberts-Baca and Fabio
  * Ibanez.
  */
-
+#include <optional>
 #include <algorithm>
 #include <type_traits>
 #include <vector>
@@ -52,10 +52,18 @@ public:
    * @param course_title The title of the course to find.
    * @return You will need to figure this out!
    */
-  FillMeIn find_course(std::string course_title)
+  std::optional<Course> find_course(std::string course_title)
   {
     /* STUDENT_TODO: Implement this method! You will need to change the return
      * type. */
+    std::optional<Course> course_to_find;
+    for(auto course : courses){
+      if(course.title == course_title){
+        course_to_find = course;
+        break;
+      }
+    }
+    return course_to_find;
     throw std::runtime_error("find_course not implemented");
   }
 
@@ -79,7 +87,7 @@ main(int argc, char* argv[])
 
     /* STUDENT_TODO: Change this condition. How can you check if the database
      * has the desired course? */
-    if (false) {
+    if (course.has_value()) {
       std::cout << "Found course: " << course->title << ","
                 << course->number_of_units << "," << course->quarter << "\n";
     } else {
