@@ -110,6 +110,7 @@ public:
   unique_ptr& operator=(unique_ptr&& other) noexcept{
     if(this != &other){
       delete ptr;
+      
       ptr = other.ptr;
       other.ptr = nullptr;
     }
