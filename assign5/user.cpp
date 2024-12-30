@@ -63,3 +63,50 @@ void User::set_friend(size_t index, const std::string& name)
  * STUDENT TODO:
  * The definitions for your custom operators and special member functions will go here!
  */
+
+/* Part 1: Viewing Profiles */
+std::ostream& operator << (std::ostream& out,const User& user){
+  out << "User(name=" << user.get_name() << ", friends=[";
+  for(size_t i = 0; i < user._size; ++i){
+    if(i != 0) out << ", ";
+    out << user._friends[i];
+  }
+  out << "])";
+  return out;
+}
+
+/* Part 2: Unfriendly Behaviour */
+User::~User(){
+  delete[] _friends;
+}
+
+User::User(const User& user)
+	:_name(user._name)
+	,_size(user._size)
+	,_capacity(user._capacity)
+	,_friends(new std::string[user._size])
+  {
+	std::copy(user._friends,user._friends+_size,_friends);
+  }
+
+User& User::operator=(const User& user){
+  if(this==&user) return *this;
+	delete[] _friends;
+	_name=user._name;
+	_size=user._size;
+	_capacity=user._capacity;
+	_friends=new std::string[_size];
+	std::copy(user._friends,user._friends+_size,_friends);
+	return *this;
+}
+
+/* Part 3: Always Be Friending */
+User& User::operator +=(User& user){
+  this->add_friend(user.get_name());
+  user.add_friend(this->get_name());
+  return *this;
+}
+
+bool operator<(const User& lhs,const User& rhs){
+  return lhs.get_name()<rhs.get_name();
+}
